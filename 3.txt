@@ -1,0 +1,26 @@
+#get filename
+fname=input('enter file name:')
+print
+#open filename
+ hamletTxt=open(fname,'r',encoding='UTF-8').readlines()
+#define
+code_num=0
+
+blank_num=0
+
+annotate_num=0
+for content in hamletTxt:
+    content = content.strip()
+    # 统计空行
+    if content == '':
+       blank_num += 1
+    # 统计注释行
+    elif content.startswith('#'):
+         annotate_num += 1
+    # 统计代码行
+    else:
+        code_num += 1
+#print
+print("总共有{}行代码行".format(code_num))
+print("总共有{}行空行".format(blank_num))
+print("总共有{}行注释行".format(annotate_num))
